@@ -89,3 +89,10 @@ def fixup_nifti_file(fname, prefix='f', TR=None, slice_axis=None, slice_times=No
                                  slice_axis=slice_axis,
                                  slice_times=slice_times)
     nib.save(fixed_img, new_fname)
+
+# command line mode - just take a filename and fix it
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 2:
+        raise Exception("Need a filename.")
+    fixup_nifti_file(sys.argv[1])
